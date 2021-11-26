@@ -88,3 +88,26 @@ Para rodar a aplicação em um servidor local pode-se seguir os seguntes passos:
     ```bash
     npm run dev
     ```
+
+## Usar a aplicação
+
+Existem para além da root (que é uma view que exibe uma lista de usuários), cinco rotas de navegação:
+
+    GET /users - Lista todos os usuários
+    GET /users/:id - Exibe dados do usuário a que o id enviado corresponde
+    POST /users - Cria um novo usuário
+    PUT /users/:id - Atualiza dados do usuário a que o id enviado corresponde
+    DELETE /users/:id - Deleta dados do usuário a que o id enviado corresponde (apaga o usuário)
+
+Para criar um usuário poderá enviar uma requisição POST para '/users' enviando no corpo da requisição os dados obrigatórios desse usuário:
+
+```json 
+{
+    "name": "John Doe",
+    "email": "john.doe@gmail.com",
+    "gender": "M", // M ou F
+    "birthday": "12-04-1987", // dia-mês-ano
+    "phone": "92234456" // pode incluir código do país
+}
+```
+
