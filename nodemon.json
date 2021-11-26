@@ -1,0 +1,20 @@
+{
+	"verbose": true,
+	"ext": "js, json, jsx",
+
+	"watch": [
+		"src", "package.json"
+	],
+
+	"ignore": ["src/config/constructors", "node_modules"],
+
+	"execMap": {
+		"js": "sucrase-node",
+		"jsx": "sucrase-node src/index.js",
+		"json": "re-config"
+	},
+
+	"env": {
+		"NODE_ENV": "development"
+	}
+}
