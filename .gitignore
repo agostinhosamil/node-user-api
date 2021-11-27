@@ -3,3 +3,6 @@ yarn-error.log
 
 *.sqlite3
 *.sqlite
+
+push.bat
+coverage
