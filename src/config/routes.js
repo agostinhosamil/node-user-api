@@ -1,16 +1,18 @@
-import { Router } from 'express'
-import { pages, users } from '../app/controllers'
+const { Router } = require ('express')
+const { pages, users } = require ('../app/controllers')
+
+const { auth } = require ('../app/middlewares/auth')
 
 const Routes = Router()
 
 Routes.get('/', pages.index)
 
 //#region User Routes
-Routes.get ('/users', users.index)
-Routes.get ('/users/:id', users.show)
-Routes.post ('/users', users.create)
-Routes.put ('/users/:id', users.update)
-Routes.delete ('/users/:id', users.destroy)
+Routes.get ('/users', [auth.base], users.index)
+Routes.get ('/users/:id', [auth.base], users.show)
+Routes.post ('/users', [auth.base], users.create)
+Routes.put ('/users/:id', [auth.base], users.update)
+Routes.delete ('/users/:id', [auth.base], users.destroy)
 //#endregion
 
-export { Routes }
+exports.Routes = Routes

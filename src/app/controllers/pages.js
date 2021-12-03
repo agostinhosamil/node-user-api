@@ -1,6 +1,6 @@
-import { User } from '../models'
+const { User } = require ('../models')
 
-export default class pagesController {
+class pagesController {
 	async index (req, res) {
 
 		const users = await User.findAll()
@@ -8,3 +8,5 @@ export default class pagesController {
 		res.render ('pages/index', { users })
 	}
 }
+
+module.exports = pagesController

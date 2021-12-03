@@ -1,15 +1,16 @@
-import bodyParser from 'body-parser'
-import express from 'express'
-import path from 'path'
+const bodyParser = require ('body-parser')
+const express = require ('express')
+const cors = require ('cors')
+const path = require ('path')
 
 // import config from '@config'
-import { Routes } from '../config/routes'
+const { Routes } = require ('../config/routes')
 
 const coreApplication = express()
 
-export class Application {
+class Application {
 	constructor () {
-		this.middlewares()
+		this.setupMiddlewares()
 		this.drawRoutes()
 	}
 
@@ -17,9 +18,10 @@ export class Application {
 		return coreApplication
 	}
 
-	middlewares () {
+	setupMiddlewares () {
+		this.express.use(cors())
 		this.express.use(bodyParser.json())
-		this.express.use(bodyParser.urlencoded())
+		this.express.use(bodyParser.urlencoded({ extended: false }))
 		this.express.use(express.static(
 			path.resolve (__dirname, '..', '..', 'public')
 		))
@@ -30,6 +32,6 @@ export class Application {
 	}
 }
 
-export const App = new Application
+exports.App = new Application
 
-export const app = App.express
+exports.app = App.express

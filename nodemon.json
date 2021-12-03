@@ -6,7 +6,7 @@
 		"src", "package.json"
 	],
 
-	"ignore": ["src/config/constructors", "node_modules"],
+	"ignore": ["src/config/constructors", "node_modules", "tests"],
 
 	"execMap": {
 		"js": "sucrase-node",

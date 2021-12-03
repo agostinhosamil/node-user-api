@@ -1,3 +1,4 @@
+import './config/env'
 import { app } from './app'
 
 import register from '@react-ssr/express/register'
@@ -7,7 +8,7 @@ import config from './config'
 
 	await register (app);
 
-	app.listen(config.port, () => {
-		console.log (config.StartUpMessage)
+	app.listen (config.port, () => {
+		console.log (config.StartUpMessage || 'server started')
 	})
 })()

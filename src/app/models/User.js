@@ -1,8 +1,10 @@
-import { Model } from 'sequelize'
+const { Model } = require ('sequelize')
 
-export default class User extends Model {
+class User extends Model {
 	// user model
 	static initialize () {
-		console.log ('Createing User')
+		// console.log ('Createing User')
 	}
 }
+
+module.exports = User

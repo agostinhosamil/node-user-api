@@ -1,13 +1,14 @@
-import Sequelize from 'sequelize'
+const Sequelize = require ('sequelize')
 
-import databaseConfig from '../config/database'
+const databaseConfig = require ('../config/database')
 
 const sequelize = new Sequelize (databaseConfig)
 
 sequelize.authenticate().then(() => {
-	console.log ('Database connected..!')
+	// console.log ('Database connected..!')
 }).catch(error => {
-	console.log (`Error while connecting to the database..! \n ${ error }`)
+	// console.log (`Error while connecting to the database..! \n ${ error }`)
 })
 
-export default sequelize
+module.exports = sequelize
+// 

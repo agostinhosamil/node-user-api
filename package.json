@@ -6,6 +6,7 @@
   "devDependencies": {
     "babel-plugin-import": "^1.13.3",
     "babel-plugin-styled-components": "^2.0.1",
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "jest": "^27.3.1",
     "nodemon": "^2.0.15",
@@ -15,8 +16,11 @@
     "supertest": "^6.1.6"
   },
   "scripts": {
-    "dev": "nodemon src/index.js  --ignore tests",
-    "test": "jest"
+    "dev": "nodemon src/index.js",
+    "pretest": "cross-env NODE_ENV=test sequelize db:create && sequelize db:migrate:undo:all && sequelize db:migrate",
+    "test": "cross-env NODE_ENV=test jest",
+
+    "db:truncate": "cross-env NODE_ENV=test sequelize db:create && sequelize db:migrate:undo:all && sequelize db:migrate && sucrase-node tests/utils/truncate-database.js"
   },
   "dependencies": {
     "@react-ssr/core": "^0.24.0",

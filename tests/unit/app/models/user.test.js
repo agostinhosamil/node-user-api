@@ -1,8 +1,14 @@
+// const { User } = require ('../../../../src/app/models')
+const request = require ('supertest')
+
 describe ('user creation', () => {
-  it ('it should sum two with one', () => {
-    const a = 2
-    const b = 1
+  it ('should create a user', async () => {
+    // const user = { email: 'john.doe@gmail.com' }
     
-    expect (a + b).toBe (3)
+    const { app } = require ('../../../../src/app')
+    const response = request (app)
+      .get ('/users')
+
+    expect (response.status).toBe (200)
   })
 })

@@ -1,6 +1,6 @@
-import { User } from '../models'
+const { User } = require ('../models')
 
-export default class usersController {
+class usersController {
 	/**
 	 * Get all the users in the database.
 	 * 
@@ -60,7 +60,7 @@ export default class usersController {
 			})
 		}
 
-		return res.send (user.toJSON ())
+		return res.status(200).send (user)
 	}
 
 	/**
@@ -93,7 +93,7 @@ export default class usersController {
 
 		// await User.update(userDatas, {where: { id }})
 
-		return res.send (user.toJSON ())
+		return res.send (user)
 	}
 
 	/**
@@ -138,3 +138,5 @@ export default class usersController {
 		return paramsList
 	}
 }
+
+module.exports = usersController

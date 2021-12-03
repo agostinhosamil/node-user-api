@@ -1,5 +1,5 @@
-import * as path from 'path'
-import * as fs from 'fs'
+const path = require ('path')
+const fs = require ('fs')
 
 const controllerDirectoryFileList = fs.readdirSync (__dirname)
 
