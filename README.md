@@ -1,6 +1,6 @@
-# Node-Test-Beeleads
+# Node-API
 
-# O teste para a vaga é o seguinte:
+# Funcionalidades e características:
 
     [X] Criar uma API para um cadastro de usuário em NodeJS
     [X] Campos Nome, email, telefone, data de nascimento, sexo
